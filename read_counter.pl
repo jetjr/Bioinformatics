@@ -11,6 +11,10 @@ use File::Basename;
 
 my @files_list;
 
+if (!@ARGV) {
+    pod2usage(-verbose => 0, -message => "$0: FASTA files(s) required\n")
+}
+
 main();
 
 # --------------------------------------------------
@@ -71,7 +75,9 @@ read_counter.pl - a script to count reads in a FASTA file
   read_counter.pl -f [FASTA file or files] 
 
 Options:
-
+    
+  --files  FASTA input files containing reads to be counted
+  --output Name for output file containing counts (Default: read_counts.txt)
   --help   Show brief help and exit
   --man    Show full documentation
 
