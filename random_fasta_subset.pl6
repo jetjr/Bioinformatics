@@ -38,6 +38,5 @@ sub MAIN (File :$fasta, Str :$percent) {
         if $count eq any(@l) { print "$seq\n"; }
         $count++;
     }
-#say $fasta;
 }
 
