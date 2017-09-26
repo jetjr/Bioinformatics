@@ -2,6 +2,13 @@
 
 from Bio import SeqIO
 from Bio.Seq import Seq
+import sys
+
+args = sys.argv
+
+if len(args) < 2:
+  print("Usage:", args[0], "FASTA")
+  sys.exit(1)
 
 total_len = 0
 total_seqs = 0
@@ -12,7 +19,7 @@ C = 0
 G = 0
 N = 0
 
-for seq_record in SeqIO.parse("virus_contigs.fasta", "fasta"):
+for seq_record in SeqIO.parse(args[1], "fasta"):
     total_seqs = total_seqs + 1
     total_len = len(str(seq_record.seq)) + total_len
     len_list.append(len(str(seq_record.seq)))

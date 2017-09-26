@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 
 import math
+import sys
 
 from Bio import SeqIO
 
-header = 1
-size = 150
+args = sys.argv
 
-for seq_record in SeqIO.parse("virus_contigs.fasta", "fasta"):
+if len(args) < 3:
+    print('Usage:', args[0], 'FASTA', 'Size')
+    sys.exit(1)
+
+header = 1
+size = int(args[2])
+
+for seq_record in SeqIO.parse(args[1], "fasta"):
     seq_len = len(seq_record.seq)
     num = range(math.ceil(seq_len / size))
     print(seq_len)
