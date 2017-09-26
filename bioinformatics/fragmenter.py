@@ -9,7 +9,7 @@ size = 150
 
 for seq_record in SeqIO.parse("virus_contigs.fasta", "fasta"):
     seq_len = len(seq_record.seq)
-    num = range(seq_len // size)
+    num = range(math.ceil(seq_len / size))
     print(seq_len)
     begin = 0
     end = 150
